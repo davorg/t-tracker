@@ -12,7 +12,7 @@ $(document).ready(function() {
 function do_it(ms_now, year) {
   var start_of_yr    = new Date(year + '/01/01 00:00:00');
   var ms_start_of_yr = start_of_yr.getTime();
-  var end_of_yr      = new Date(++year + '/01/01 00:00:00');
+  var end_of_yr      = new Date((year + 1) + '/01/01 00:00:00');
   var ms_end_of_yr   = end_of_yr.getTime();
 
   var ms_in_yr       = ms_end_of_yr - ms_start_of_yr;
