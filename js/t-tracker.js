@@ -19,7 +19,7 @@ function do_it(ms_now, year) {
   var ms_thru_yr     = ms_now - ms_start_of_yr;
 
   var yr_percent  = (ms_thru_yr * 100) / ms_in_yr;
-  var fmt_percent = yr_percent.toFixedNumber(0);
+  var fmt_percent = yr_percent.toFixedNumber(1);
 
   $('#data').html(fmt_percent + '%');
 
