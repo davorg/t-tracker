@@ -26,8 +26,9 @@ $(document).ready(function() {
 function do_it(the_date) {
   var days_in_curr_year = days_in_year(the_date.getFullYear());
   var curr_day          = day_of_year(the_date);
+  var percent           = (curr_day * 100 / days_in_curr_year).toFixed(1);
 
-  $('#data').html("Day number " + curr_day);
+  $('#data').html("Day number " + curr_day + " (" + percent + "%)");
 
   var chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
@@ -37,7 +38,8 @@ function do_it(the_date) {
     dataPointWidth: 15,
     data: [{
       type: "stackedBar100",
-      toolTipContent: "<b>{name}:</b> {y}",
+      toolTipContent: "<b>{name}:</b> {y} (" + percent + "%)",
+      percent: percent,
       name: "Day",
       dataPoints: [
         {y: curr_day, label: the_date.getFullYear(), color: "green"},
@@ -53,4 +55,3 @@ function do_it(the_date) {
   });
   chart.render();
 }
-
